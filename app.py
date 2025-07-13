@@ -41,7 +41,15 @@ def bulk_upload_interface(data_file):
                 st.success(f"✅ {len(bulk_df)} intern(s) uploaded and merged successfully!")
                 st.rerun()
 
-# Your existing app code below
+# ✅ Main Application
+st.set_page_config(page_title="Intern Tracker", layout="wide")
+st.title("🧠 Intern Tracker")
 
-# Example usage placement in your main script:
-# bulk_upload_interface(data_file)  # Call this inside "Add/Update Intern" page or after login success
+page = st.sidebar.selectbox("Navigate", ["Dashboard", "Add/Update Intern"])
+data_file = "data/demo.csv"
+os.makedirs("data", exist_ok=True)
+
+if page == "Add/Update Intern":
+    bulk_upload_interface(data_file)
+else:
+    st.info("📊 Dashboard coming soon... Upload intern data to get started.")
