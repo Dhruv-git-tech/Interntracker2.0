@@ -9,7 +9,7 @@ def bulk_upload_interface(data_file):
     st.markdown("---")
     st.subheader("📥 Bulk Upload Intern Data from Spreadsheet")
 
-    uture ploaded_file = st.file_uploader("Upload Excel/CSV file", type=["xlsx", "csv"])
+    uploaded_file = st.file_uploader("Upload Excel/CSV file", type=["xlsx", "csv"])
     if uploaded_file:
         if uploaded_file.name.endswith(".csv"):
             bulk_df = pd.read_csv(uploaded_file)
